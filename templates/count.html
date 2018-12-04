@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Count Result</title>
+</head>
+<body>
+<h1>There are {{ count }} words in your text</h1>
+
+<a href="{% url 'home' %}">Back to home</a>
+<br />
+<br />
+<form action="{% url 'home' %}">
+    <input type="submit" value="Back to home" />
+</form>
+
+<h1>Your text is: </h1>
+{{ fulltext }}
+<h1> The most frequent word was: </h1>
+{{ winnerword }} ({{ winnertimes }} TIME(S) )
+
+<h1>All words:</h1>
+
+{% for word, counttotal in worddictionary %}
+
+{{ word }} - {{ counttotal }}
+<br/>
+
+{% endfor %}
+</body>
+</html>
